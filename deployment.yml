@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    k8s.kuboard.cn/layer: web
+  name: ruoyi-cloud-web
+  namespace: yixiuge-cloud
+spec:
+  selector:
+    matchLabels:
+      app: ruoyi-cloud-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ruoyi-cloud-web
+    spec:
+      imagePullSecrets:
+        - name: registry-secret
+      containers:
+        - name: ruoyi-cloud-web
+          imagePullPolicy: Always
+          image: registry.cn-shanghai.aliyuncs.com/yixiuge/ruoyi-cloud-web:20211223001844
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s.kuboard.cn/layer: web
+  name: ruoyi-cloud-web-service
+  namespace: yixiuge-cloud
+spec:
+  selector:
+    app: ruoyi-cloud-web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+  loadBalancerIP: 192.168.2.51
