@@ -5,7 +5,7 @@ ENV LANG en_US.UTF-8
 RUN echo "server {  \
                       listen       80; \
                       location /prod-api/* { \
-                        proxy_pass              http://gateway.yixiuge.pub/; \
+                        proxy_pass              http://gateway.yixiuge.pub$request_uri; \
                         #proxy_set_header        Host yixiuge.pub; \
                         #proxy_set_header        X-Real-IP \$remote_addr; \
                         #proxy_set_header        X-Forwarded-For \$proxy_add_x_forwarded_for; \
