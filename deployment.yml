@@ -20,7 +20,7 @@ spec:
       containers:
         - name: ruoyi-cloud-web
           imagePullPolicy: Always
-          image: registry.cn-shanghai.aliyuncs.com/yixiuge/ruoyi-cloud-web:20211223001844
+          image: registry.cn-shanghai.aliyuncs.com/yixiuge/ruoyi-cloud-web:20211223194822
           ports:
             - containerPort: 80
 
@@ -40,4 +40,4 @@ spec:
       port: 80
       targetPort: 80
   type: LoadBalancer
-  loadBalancerIP: 192.168.2.51
+  loadBalancerIP: 192.168.2.54
