@@ -4,7 +4,7 @@ VOLUME /tmp
 ENV LANG en_US.UTF-8
 RUN echo "server {  \
                       listen       80; \
-                      location ^~ /prod-api { \
+                      location /prod-api/* { \
                         proxy_pass              http://gateway.yixiuge.pub; \
                         proxy_set_header        Host yixiuge.pub; \
                         proxy_set_header        X-Real-IP \$remote_addr; \
