@@ -15,7 +15,7 @@ RUN echo "server {  \
                   			proxy_set_header X-Real-IP \$remote_addr; \
                   			proxy_set_header REMOTE-HOST \$remote_addr; \
                   			proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for; \
-                  			proxy_pass http://gateway.yixiuge.pub/; \
+                  			proxy_pass http://192.168.2.26:8080/; \
                   		}\
                   access_log  /var/log/nginx/access.log ; \
               } " > /etc/nginx/conf.d/default.conf \
